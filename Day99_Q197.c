@@ -6,7 +6,6 @@ typedef struct {
     double time;
 } Car;
 
-// Comparator for sorting in descending order of position
 int compare(const void *a, const void *b) {
     Car *c1 = (Car *)a;
     Car *c2 = (Car *)b;
@@ -17,13 +16,13 @@ int compare(const void *a, const void *b) {
 int carFleet(int target, int position[], int speed[], int n) {
     Car cars[n];
 
-    // Store position and time to reach target
+
     for (int i = 0; i < n; i++) {
         cars[i].position = position[i];
         cars[i].time = (double)(target - position[i]) / speed[i];
     }
 
-    // Sort cars by position descending
+    
     qsort(cars, n, sizeof(Car), compare);
 
     int fleets = 0;
